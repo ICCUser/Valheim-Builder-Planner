@@ -7,6 +7,7 @@
 **Tags:** Building, Tools, Utilities, **AI-Generated Content** (the code was written with an AI assistant: Nexus asks to tag it)
 **Requirements:** none (Valheim must be installed). Optional: PlanBuild (+ BepInEx, Jötunn) only for the PlanBuild export.
 **Main file:** `release/ValheimBuilderPlanner-v1.0.0-win64.zip` — file category "Main files", description: "Windows 64-bit. Unzip anywhere and run ValheimBuilderPlanner.exe."
+**Banner / header image:** `docs/logo/banner.png` (1920 × 480; re-render with `tools/logo/render_banner.gd` if Nexus asks for another size)
 **Images:** `docs/logo/logo_1024.png` as the mod's main image (thumbnail), then the screenshots in `docs/images/` (01_build first).
 **Source code link:** https://github.com/ICCUser/valheim-builder-planner
 

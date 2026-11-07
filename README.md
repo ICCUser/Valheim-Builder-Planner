@@ -1,4 +1,4 @@
-<p align="center"><img src="docs/logo/logo_256.png" width="160" alt="Valheim Builder Planner logo"></p>
+![Valheim Builder Planner](docs/logo/banner.png)
 
 # Valheim Builder Planner
 

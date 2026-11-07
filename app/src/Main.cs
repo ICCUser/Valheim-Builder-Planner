@@ -296,7 +296,7 @@ public partial class Main : Node3D
     void BuildUi()
     {
         // A CanvasLayer does not pass themes down, so everything hangs off one themed root control.
-        var canvas = new CanvasLayer();
+        var canvas = new CanvasLayer { Visible = !OS.GetCmdlineUserArgs().Contains("--clean") };   // --clean: 3D only, for banners
         AddChild(canvas);
         var layer = new Control { MouseFilter = Control.MouseFilterEnum.Ignore, Theme = GetTree().Root.Theme };
         layer.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Valheim Builder Planner emblem: a round shield with a longhouse, planning grid, snap points and a measuring rule. Original artwork, MIT. -->
+  <defs>
+    <radialGradient id="plate" cx="50%" cy="42%" r="62%">
+      <stop offset="0" stop-color="#2a2016"/>
+      <stop offset="1" stop-color="#0c0906"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2d58a"/>
+      <stop offset="0.5" stop-color="#d4a94f"/>
+      <stop offset="1" stop-color="#8f6a2a"/>
+    </linearGradient>
+    <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7a5326"/>
+      <stop offset="1" stop-color="#4a3018"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a3d20"/>
+      <stop offset="1" stop-color="#3a2614"/>
+    </linearGradient>
+    <clipPath id="inner"><circle cx="256" cy="256" r="206"/></clipPath>
+  </defs>
+
+  <!-- shield rim -->
+  <circle cx="256" cy="256" r="246" fill="#1a120a"/>
+  <circle cx="256" cy="256" r="238" fill="none" stroke="url(#gold)" stroke-width="12"/>
+  <circle cx="256" cy="256" r="214" fill="url(#plate)" stroke="#8f6a2a" stroke-width="3"/>
+  <!-- rivets -->
+  <g fill="url(#gold)">
+    <circle cx="256" cy="30" r="6.5"/><circle cx="342.5" cy="47.2" r="6.5"/><circle cx="415.8" cy="96.2" r="6.5"/><circle cx="464.8" cy="169.5" r="6.5"/>
+    <circle cx="482" cy="256" r="6.5"/><circle cx="464.8" cy="342.5" r="6.5"/><circle cx="415.8" cy="415.8" r="6.5"/><circle cx="342.5" cy="464.8" r="6.5"/>
+    <circle cx="256" cy="482" r="6.5"/><circle cx="169.5" cy="464.8" r="6.5"/><circle cx="96.2" cy="415.8" r="6.5"/><circle cx="47.2" cy="342.5" r="6.5"/>
+    <circle cx="30" cy="256" r="6.5"/><circle cx="47.2" cy="169.5" r="6.5"/><circle cx="96.2" cy="96.2" r="6.5"/><circle cx="169.5" cy="47.2" r="6.5"/>
+  </g>
+
+  <!-- planning grid -->
+  <g clip-path="url(#inner)" stroke="#d4a94f" stroke-opacity="0.13" stroke-width="2">
+    <path d="M64 0V512M96 0V512M128 0V512M160 0V512M192 0V512M224 0V512M256 0V512M288 0V512M320 0V512M352 0V512M384 0V512M416 0V512M448 0V512"/>
+    <path d="M0 64H512M0 96H512M0 128H512M0 160H512M0 192H512M0 224H512M0 256H512M0 288H512M0 320H512M0 352H512M0 384H512M0 416H512M0 448H512"/>
+  </g>
+
+  <!-- longhouse -->
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <!-- walls with planks -->
+    <rect x="164" y="274" width="184" height="88" fill="url(#wall)" stroke="url(#gold)" stroke-width="7"/>
+    <path d="M196 278V358M228 278V358M284 278V358M316 278V358" stroke="#1e140b" stroke-width="3"/>
+    <!-- roof -->
+    <path d="M136 282 L256 186 L376 282 Z" fill="url(#roof)" stroke="url(#gold)" stroke-width="8"/>
+    <path d="M172 266 L256 199 L340 266" fill="none" stroke="#2b1c0e" stroke-width="3"/>
+    <path d="M196 270 L256 222 L316 270" fill="none" stroke="#2b1c0e" stroke-width="3"/>
+    <!-- crossed gable horns, curled ends -->
+    <path d="M256 194 L214 144 Q206 132 218 128" fill="none" stroke="url(#gold)" stroke-width="8"/>
+    <path d="M256 194 L298 144 Q306 132 294 128" fill="none" stroke="url(#gold)" stroke-width="8"/>
+    <!-- door -->
+    <path d="M238 362 V322 Q256 300 274 322 V362 Z" fill="#120c07" stroke="url(#gold)" stroke-width="5"/>
+    <!-- ground -->
+    <path d="M118 362 H394" stroke="url(#gold)" stroke-width="7"/>
+  </g>
+
+  <!-- snap points on the corners -->
+  <g fill="#ffe7a6" stroke="#8f6a2a" stroke-width="2">
+    <circle cx="164" cy="362" r="8"/><circle cx="348" cy="362" r="8"/>
+    <circle cx="164" cy="274" r="8"/><circle cx="348" cy="274" r="8"/>
+    <circle cx="256" cy="186" r="8"/>
+  </g>
+
+  <!-- measuring rule -->
+  <g stroke="url(#gold)" stroke-linecap="round">
+    <path d="M150 396 H362" stroke-width="5"/>
+    <path d="M150 386V406M203 390V402M256 386V406M309 390V402M362 386V406" stroke-width="4"/>
+    <path d="M176.5 392V400M229.5 392V400M282.5 392V400M335.5 392V400" stroke-width="2.5"/>
+  </g>
+</svg>

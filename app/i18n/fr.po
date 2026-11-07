@@ -1,0 +1,601 @@
+# Valheim Builder Planner — UI texts. Game names (pieces, materials) come from the game itself and are not here.
+msgid ""
+msgstr ""
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: src/BuildSteps.cs:49
+msgid "BUILD LIST"
+msgstr "LISTE DE CONSTRUCTION"
+
+#: src/BuildSteps.cs:50
+#, csharp-format
+msgid "Generated on {0}"
+msgstr "Généré le {0}"
+
+#: src/BuildSteps.cs:52
+#, csharp-format
+msgid "Pieces: {0}"
+msgstr "Pièces : {0}"
+
+#: src/BuildSteps.cs:53
+#, csharp-format
+msgid "Materials to gather: {0}"
+msgstr "Matériaux à réunir : {0}"
+
+#: src/BuildSteps.cs:55
+#, csharp-format
+msgid "Stations nearby: {0}"
+msgstr "Ateliers à proximité : {0}"
+
+#: src/BuildSteps.cs:60
+#, csharp-format
+msgid "FLOOR {0}  (from {1} to {2} m)"
+msgstr "ÉTAGE {0}  (de {1} à {2} m)"
+
+#: src/BuildSteps.cs:61
+#, csharp-format
+msgid "Materials: {0}"
+msgstr "Matériaux : {0}"
+
+#: src/BuildSteps.cs:65
+#, csharp-format
+msgid "Step {0} — {1}"
+msgstr "Étape {0} — {1}"
+
+#: src/BuildSteps.cs
+msgid "Floors and foundations"
+msgstr "Sols et fondations"
+
+#: src/BuildSteps.cs
+msgid "Stairs"
+msgstr "Escaliers"
+
+#: src/BuildSteps.cs
+msgid "Poles and pillars"
+msgstr "Poteaux et piliers"
+
+#: src/BuildSteps.cs
+msgid "Walls"
+msgstr "Murs"
+
+#: src/BuildSteps.cs
+msgid "Doors and openings"
+msgstr "Portes et ouvertures"
+
+#: src/BuildSteps.cs
+msgid "Beams"
+msgstr "Poutres"
+
+#: src/BuildSteps.cs
+msgid "Roof"
+msgstr "Toit"
+
+#: src/BuildSteps.cs
+msgid "Crafting stations"
+msgstr "Ateliers et fabrication"
+
+#: src/BuildSteps.cs
+msgid "Furniture and decoration"
+msgstr "Mobilier et décoration"
+
+#: src/BuildSteps.cs
+msgid "Miscellaneous"
+msgstr "Divers"
+
+#: src/Main.cs:93
+#, csharp-format
+msgid "Tab: menu / mouse · Mouse: look · {0}: fly · Space/C: up/down · Shift: fast · Left click: place · Wheel or R: rotate · Ctrl+wheel: pick snap point · Alt: no snapping · Middle click: remove · Shift+middle click: pick piece · G: 0.5 m grid · Ctrl+Z: undo · Esc: put piece away · P: floor view · V: stability"
+msgstr "Tab : menu / souris · Souris : regarder · {0} : voler · Espace/C : monter/descendre · Maj : rapide · Clic gauche : poser · Molette ou R : tourner · Ctrl+molette : choisir le point d'accroche · Alt : sans accroche · Clic molette : supprimer · Maj+clic molette : pipette · G : grille 0,5 m · Ctrl+Z : annuler · Échap : ranger la pièce · P : vue par étage · V : stabilité"
+
+#: src/Main.cs:94
+#, csharp-format
+msgid "Page Up / Page Down: change floor · Wheel: zoom · Right drag or {0}: move view · Left click: place · R / Shift+R: rotate · Middle click: remove · Shift+middle click: pick piece · Ctrl+Z: undo · P: back to 3D"
+msgstr "Page↑ / Page↓ : changer d'étage · Molette : zoom · Clic droit glissé ou {0} : déplacer la vue · Clic gauche : poser · R / Maj+R : tourner · Clic molette : supprimer · Maj+clic molette : pipette · Ctrl+Z : annuler · P : retour en 3D"
+
+#: src/Main.cs:166
+#, csharp-format
+msgid "Last plan restored ({0} piece)"
+msgid_plural "Last plan restored ({0} pieces)"
+msgstr[0] "Dernier plan restauré ({0} pièce)"
+msgstr[1] "Dernier plan restauré ({0} pièces)"
+
+#: src/Main.cs:322
+msgid "New"
+msgstr "Nouveau"
+
+#: src/Main.cs:323
+msgid "Open…"
+msgstr "Ouvrir…"
+
+#: src/Main.cs:324
+msgid "Save…"
+msgstr "Enregistrer…"
+
+#: src/Main.cs:326
+msgid "Clear the whole current plan?\n(Save it first if you want to keep it.)"
+msgstr "Effacer tout le plan en cours ?\n(Pense à l'enregistrer avant si tu veux le garder.)"
+
+#: src/Main.cs:326
+msgid "New plan"
+msgstr "Nouveau plan"
+
+#: src/Main.cs:326
+msgid "Clear"
+msgstr "Effacer"
+
+#: src/Main.cs:326
+msgid "Cancel"
+msgstr "Annuler"
+
+#: src/Main.cs:336
+msgid "Stability view (V)"
+msgstr "Vue stabilité (V)"
+
+#: src/Main.cs:339
+msgid "Floor view (P)"
+msgstr "Vue par étage (P)"
+
+#: src/Main.cs:341
+msgid "Guide (B)"
+msgstr "Guide (B)"
+
+#: src/Main.cs:346
+msgid "Language"
+msgstr "Langue"
+
+#: src/Main.cs:360
+msgid "Pieces"
+msgstr "Pièces"
+
+#: src/Main.cs:366
+msgid "Search for a piece…"
+msgstr "Rechercher une pièce…"
+
+#: src/Main.cs:388
+msgid "Selected piece"
+msgstr "Pièce choisie"
+
+#: src/Main.cs:397 src/Main.cs:526
+msgid "Choose a piece on the left, or aim at one and press Shift+middle click."
+msgstr "Choisis une pièce à gauche, ou vise-en une et fais Maj+clic molette."
+
+#: src/Main.cs:399
+msgid "Plan"
+msgstr "Plan"
+
+#: src/Main.cs:446
+msgid "Save plan"
+msgstr "Enregistrer le plan"
+
+#: src/Main.cs:449
+msgid "Open plan"
+msgstr "Ouvrir un plan"
+
+#: src/Main.cs:453
+msgid "Export build list"
+msgstr "Exporter la liste de construction"
+
+#: src/Main.cs:479
+msgid "All"
+msgstr "Tout"
+
+#: src/Main.cs:532
+#, csharp-format
+msgid "Cost: {0}"
+msgstr "Coût : {0}"
+
+#: src/Main.cs:532
+#, csharp-format
+msgid "Station: {0}"
+msgstr "Atelier : {0}"
+
+#: src/Main.cs:532
+msgid "none"
+msgstr "aucun"
+
+#: src/Main.cs:532
+#, csharp-format
+msgid "Material: {0}"
+msgstr "Matériau : {0}"
+
+#: src/Main.cs:532
+#, csharp-format
+msgid "Snap points: {0}"
+msgstr "Points d'accroche : {0}"
+
+#: src/Main.cs:539
+msgid "Wood"
+msgstr "Bois"
+
+#: src/Main.cs:539
+msgid "Core wood"
+msgstr "Bois dur (cœur)"
+
+#: src/Main.cs:539
+msgid "Timber wood"
+msgstr "Bois de charpente"
+
+#: src/Main.cs:539
+msgid "Stone"
+msgstr "Pierre"
+
+#: src/Main.cs:540
+msgid "Black marble"
+msgstr "Marbre noir"
+
+#: src/Main.cs:540
+msgid "Ashstone"
+msgstr "Pierre de cendre"
+
+#: src/Main.cs:540
+msgid "Iron"
+msgstr "Fer"
+
+#: src/Main.cs:540
+msgid "Ancient"
+msgstr "Ancien"
+
+#: src/Main.cs:540
+msgid "Ice"
+msgstr "Glace"
+
+#: src/Main.cs:547
+#, csharp-format
+msgid "Pieces placed: {0}"
+msgstr "Pièces posées : {0}"
+
+#: src/Main.cs:549
+msgid "Materials needed:"
+msgstr "Matériaux nécessaires :"
+
+#: src/Main.cs:553
+msgid "(nothing yet)"
+msgstr "(rien pour l'instant)"
+
+#: src/Main.cs:558
+#, csharp-format
+msgid "{0} piece would collapse!"
+msgid_plural "{0} pieces would collapse!"
+msgstr[0] "{0} pièce s'effondrerait !"
+msgstr[1] "{0} pièces s'effondreraient !"
+
+#: src/Main.cs:564
+msgid "Stations required:"
+msgstr "Ateliers requis :"
+
+#: src/Main.cs:575
+#, csharp-format
+msgid "FLOOR {0} / {1}"
+msgstr "ÉTAGE {0} / {1}"
+
+#: src/Main.cs:576
+#, csharp-format
+msgid "{0} piece to place, in order:"
+msgid_plural "{0} pieces to place, in order:"
+msgstr[0] "{0} pièce à poser, dans l'ordre :"
+msgstr[1] "{0} pièces à poser, dans l'ordre :"
+
+#: src/Main.cs:586
+msgid "Materials for this floor:"
+msgstr "Matériaux de cet étage :"
+
+#: src/Main.cs:590
+msgid "Whole plan"
+msgstr "Total du plan"
+
+#: src/Main.cs:628
+#, csharp-format
+msgid "Floor {0} / {1}   —   from {2} to {3} m"
+msgstr "Étage {0} / {1}   —   de {2} à {3} m"
+
+#: src/Main.cs:840
+#, csharp-format
+msgid "Aiming at: {0}"
+msgstr "Visée : {0}"
+
+#: src/Main.cs:845
+msgid "Stability: COLLAPSES"
+msgstr "Stabilité : S'EFFONDRE"
+
+#: src/Main.cs:845
+#, csharp-format
+msgid "Stability: {0:0} / {1:0} (min {2:0})"
+msgstr "Stabilité : {0:0} / {1:0} (min {2:0})"
+
+#: src/Main.cs:845
+msgid "on the ground"
+msgstr "au sol"
+
+#: src/Main.cs:848
+msgid "Snap: auto"
+msgstr "Accroche : auto"
+
+#: src/Main.cs:848
+#, csharp-format
+msgid "Snap: point {0}/{1}"
+msgstr "Accroche : point {0}/{1}"
+
+#: src/Main.cs:849
+msgid "0.5 m grid"
+msgstr "grille 0,5 m"
+
+#: src/Main.cs:850
+msgid "menu — Tab to go back"
+msgstr "menu — Tab pour revenir"
+
+#: src/Main.cs:851
+#, csharp-format
+msgid "Selection: {0} (Ctrl+C copy · Del delete · Esc clear)"
+msgstr "Sélection : {0} (Ctrl+C copier · Suppr effacer · Échap vider)"
+
+#: src/Main.cs:884
+msgid "Here: the piece would fall"
+msgstr "Ici : la pièce tomberait"
+
+#: src/Main.cs:884
+#, csharp-format
+msgid "Here: stability {0:0}/{1:0}"
+msgstr "Ici : stabilité {0:0}/{1:0}"
+
+#: src/Main.cs:1134
+msgid "Nothing selected (Ctrl+click to select)"
+msgstr "Rien de sélectionné (Ctrl+clic pour sélectionner)"
+
+#: src/Main.cs:1138
+#, csharp-format
+msgid "{0} piece copied — Ctrl+V to paste"
+msgid_plural "{0} pieces copied — Ctrl+V to paste"
+msgstr[0] "{0} pièce copiée — Ctrl+V pour coller"
+msgstr[1] "{0} pièces copiées — Ctrl+V pour coller"
+
+#: src/Main.cs:1185
+#, csharp-format
+msgid "Pasting {0} piece — click: place · wheel/R: rotate · Esc: stop"
+msgid_plural "Pasting {0} pieces — click: place · wheel/R: rotate · Esc: stop"
+msgstr[0] "Collage de {0} pièce — clic : poser · molette/R : tourner · Échap : arrêter"
+msgstr[1] "Collage de {0} pièces — clic : poser · molette/R : tourner · Échap : arrêter"
+
+#: src/Main.cs:1225
+#, csharp-format
+msgid "Plan saved: {0}"
+msgstr "Plan enregistré : {0}"
+
+#: src/Main.Export.cs:22
+msgid "Export ▾"
+msgstr "Exporter ▾"
+
+#: src/Main.Export.cs:43
+msgid "Build list (text)…"
+msgstr "Liste de construction (texte)…"
+
+#: src/Main.Export.cs:44
+msgid "PlanBuild blueprint (mod, optional)…"
+msgstr "Plan pour PlanBuild (mod, optionnel)…"
+
+#: src/Main.Export.cs:49
+msgid "Send to PlanBuild"
+msgstr "Envoyer vers PlanBuild"
+
+#: src/Main.Export.cs:49
+msgid "Close"
+msgstr "Fermer"
+
+#: src/Main.Export.cs:56
+msgid "PlanBuild is a Valheim mod: it shows this plan as ghost pieces in your world, which you then build with your own materials."
+msgstr "PlanBuild est un mod de Valheim : il affiche ce plan en pièces fantômes dans ton monde, que tu construis ensuite avec tes propres matériaux."
+
+#: src/Main.Export.cs:61
+msgid "While a mod is loaded, Valheim turns achievements off. Nothing is written to your character or world: without the mod, achievements work again."
+msgstr "Tant qu'un mod est chargé, Valheim désactive les succès. Rien n'est inscrit dans ton personnage ni ton monde : sans le mod, les succès refonctionnent."
+
+#: src/Main.Export.cs:67
+msgid "Blueprint name:"
+msgstr "Nom du plan :"
+
+#: src/Main.Export.cs:82
+msgid "Save the file…"
+msgstr "Enregistrer le fichier…"
+
+#: src/Main.Export.cs:87
+#, csharp-format
+msgid "Saved: {0}"
+msgstr "Enregistré : {0}"
+
+#: src/Main.Export.cs:97
+msgid "My build"
+msgstr "Ma construction"
+
+#: src/Main.Export.cs:103
+msgid "Send to:"
+msgstr "Envoyer vers :"
+
+#: src/Main.Export.cs:103
+msgid "PlanBuild was not found. Install it (with BepInEx and Jötunn) from Thunderstore or Nexus Mods, or save the file and copy it yourself."
+msgstr "PlanBuild n'a pas été trouvé. Installe-le (avec BepInEx et Jötunn) depuis Thunderstore ou Nexus Mods, ou enregistre le fichier et copie-le toi-même."
+
+#: src/Main.Export.cs:107
+msgid "PlanBuild found"
+msgstr "PlanBuild trouvé"
+
+#: src/Main.Export.cs:135
+#, csharp-format
+msgid "Could not read {0}: {1}"
+msgstr "Impossible de lire {0} : {1}"
+
+#: src/Main.Export.cs:141
+msgid "This file contains no Valheim building pieces."
+msgstr "Ce fichier ne contient aucune pièce de construction de Valheim."
+
+#: src/Main.Export.cs:152
+#, csharp-format
+msgid "{0} piece"
+msgid_plural "{0} pieces"
+msgstr[0] "{0} pièce"
+msgstr[1] "{0} pièces"
+
+#: src/Main.Export.cs:152
+#, csharp-format
+msgid "Imported \"{0}\""
+msgstr "Importé : \"{0}\""
+
+#: src/Main.Export.cs:153
+#, csharp-format
+msgid "{0} modded piece skipped"
+msgid_plural "{0} modded pieces skipped"
+msgstr[0] "{0} pièce de mod ignorée"
+msgstr[1] "{0} pièces de mod ignorées"
+
+#: src/Main.Export.cs:154
+#, csharp-format
+msgid "{0} rotation rounded to the game's steps"
+msgid_plural "{0} rotations rounded to the game's steps"
+msgstr[0] "{0} rotation arrondie aux crans du jeu"
+msgstr[1] "{0} rotations arrondies aux crans du jeu"
+
+#: src/Main.Export.cs:177
+msgid "click to place it"
+msgstr "clique pour le poser"
+
+#: src/Main.Export.cs:191
+#, csharp-format
+msgid "Could not write {0}: {1}"
+msgstr "Impossible d'écrire {0} : {1}"
+
+#: src/Main.Export.cs:193
+msgid "Tick at least one destination."
+msgstr "Coche au moins une destination."
+
+#: src/Main.Export.cs:194
+#, csharp-format
+msgid "Sent! In game: join your world again, take the Blueprint Rune and open its \"{0}\" tab. The plan appears as ghost pieces to build with your materials."
+msgstr "Envoyé ! Dans le jeu : reviens dans ton monde, prends la rune de plan (Blueprint Rune) et ouvre son onglet \"{0}\". Le plan apparaît en pièces fantômes à construire avec tes matériaux."
+
+#: src/Main.Guide.cs:36
+msgid "Rebuild guide"
+msgstr "Guide de reconstruction"
+
+#: src/Main.Guide.cs:45
+msgid "◀ Previous"
+msgstr "◀ Précédent"
+
+#: src/Main.Guide.cs:46
+msgid "Next ▶"
+msgstr "Suivant ▶"
+
+#: src/Main.Guide.cs:47
+msgid "Show"
+msgstr "Voir"
+
+#: src/Main.Guide.cs:54
+msgid "One piece at a time"
+msgstr "Pièce par pièce"
+
+#: src/Main.Guide.cs:57
+msgid "← → arrows: previous / next · click a piece: jump to it · you can keep editing"
+msgstr "Flèches ← → : précédent / suivant · clic sur une pièce : y aller · tu peux continuer à modifier"
+
+#: src/Main.Guide.cs:148
+msgid "Nothing to rebuild yet: place some pieces first."
+msgstr "Rien à reconstruire pour l'instant : pose d'abord des pièces."
+
+#: src/Main.Guide.cs:157
+#, csharp-format
+msgid "Step {0} / {1}"
+msgstr "Étape {0} / {1}"
+
+#: src/Main.Guide.cs:158
+#, csharp-format
+msgid "Floor {0}"
+msgstr "Étage {0}"
+
+#: src/Main.Guide.cs:161
+#, csharp-format
+msgid "Placed so far: {0} / {1}"
+msgstr "Déjà posées : {0} / {1}"
+
+#: src/Main.Guide.cs:164
+#, csharp-format
+msgid "Still to gather: {0}"
+msgstr "Encore à réunir : {0}"
+
+#: src/PieceCatalog.cs:18
+msgid "Deep North"
+msgstr "Nord profond"
+
+#: src/PlanBuildExport.cs:31
+#, csharp-format
+msgid "Planned with {0} — {1} pieces"
+msgstr "Planifié avec {0} — {1} pièces"
+
+#: src/Setup.cs:69
+msgid "Read my game"
+msgstr "Lire mon jeu"
+
+#: src/Setup.cs:71 src/Setup.cs:82
+msgid "Choose the Valheim folder…"
+msgstr "Choisir le dossier de Valheim…"
+
+#: src/Setup.cs:73
+msgid "Keep the old data"
+msgstr "Garder les anciennes données"
+
+#: src/Setup.cs:86
+msgid "This is not a Valheim folder (valheim_Data is missing)."
+msgstr "Ce n'est pas un dossier de Valheim (valheim_Data est absent)."
+
+#: src/Setup.cs:98
+msgid "Valheim has changed since the planner last read it. Update the building pieces?"
+msgstr "Valheim a changé depuis la dernière lecture. Mettre à jour les pièces de construction ?"
+
+#: src/Setup.cs:99
+msgid "Welcome! The planner reads the building pieces (shapes, sizes, costs, names) from your own Valheim installation."
+msgstr "Bienvenue ! Le planificateur lit les pièces de construction (formes, tailles, coûts, noms) dans ta propre installation de Valheim."
+
+#: src/Setup.cs:100
+msgid "Nothing from the game is included in the planner: this data is created on your computer and stays there. Your game and saves are only read, never modified."
+msgstr "Rien du jeu n'est inclus dans le planificateur : ces données sont créées sur ton ordinateur et y restent. Ton jeu et tes sauvegardes sont seulement lus, jamais modifiés."
+
+#: src/Setup.cs:101
+#, csharp-format
+msgid "Valheim folder: {0}"
+msgstr "Dossier de Valheim : {0}"
+
+#: src/Setup.cs:101
+msgid "Valheim was not found automatically. Choose its folder (Steam: steamapps/common/Valheim)."
+msgstr "Valheim n'a pas été trouvé automatiquement. Choisis son dossier (Steam : steamapps/common/Valheim)."
+
+#: src/Setup.cs:128
+msgid "(about a minute)"
+msgstr "(environ une minute)"
+
+#: src/Setup.cs:134
+#, csharp-format
+msgid "Reading failed: {0}"
+msgstr "La lecture a échoué : {0}"
+
+#: shared/GameData/GameExtractor.cs:118
+msgid "Opening game files…"
+msgstr "Ouverture des fichiers du jeu…"
+
+#: shared/GameData/GameExtractor.cs:127
+msgid "Finding the hammer pieces…"
+msgstr "Recherche des pièces du marteau…"
+
+#: shared/GameData/GameExtractor.cs:161
+msgid "Reading pieces and shapes…"
+msgstr "Lecture des pièces et de leurs formes…"
+
+#: shared/GameData/GameExtractor.cs:171
+msgid "Reading names in every language…"
+msgstr "Lecture des noms dans toutes les langues…"
+
+#: shared/GameData/GameExtractor.cs:186
+msgid "Saving…"
+msgstr "Enregistrement…"
+
+#: shared/GameData/GameExtractor.cs:206
+msgid "Done"
+msgstr "Terminé"

@@ -1,0 +1,162 @@
+# Builds app/i18n/fr.po from messages.pot and the French texts below (fails loudly on any missing text).
+$root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
+$pot = Join-Path $root 'app\i18n\messages.pot'
+$out = Join-Path $root 'app\i18n\fr.po'
+
+$fr = @{
+    'BUILD LIST' = 'LISTE DE CONSTRUCTION'
+    'Generated on {0}' = 'Généré le {0}'
+    'Pieces: {0}' = 'Pièces : {0}'
+    'Materials to gather: {0}' = 'Matériaux à réunir : {0}'
+    'Stations nearby: {0}' = 'Ateliers à proximité : {0}'
+    'FLOOR {0}  (from {1} to {2} m)' = 'ÉTAGE {0}  (de {1} à {2} m)'
+    'Materials: {0}' = 'Matériaux : {0}'
+    'Step {0} — {1}' = 'Étape {0} — {1}'
+    'Floors and foundations' = 'Sols et fondations'
+    'Stairs' = 'Escaliers'
+    'Poles and pillars' = 'Poteaux et piliers'
+    'Walls' = 'Murs'
+    'Doors and openings' = 'Portes et ouvertures'
+    'Beams' = 'Poutres'
+    'Roof' = 'Toit'
+    'Crafting stations' = 'Ateliers et fabrication'
+    'Furniture and decoration' = 'Mobilier et décoration'
+    'Miscellaneous' = 'Divers'
+    'Tab: menu / mouse · Mouse: look · {0}: fly · Space/C: up/down · Shift: fast · Left click: place · Wheel or R: rotate · Ctrl+wheel: pick snap point · Alt: no snapping · Middle click: remove · Shift+middle click: pick piece · G: 0.5 m grid · Ctrl+Z: undo · Esc: put piece away · P: floor view · V: stability' = 'Tab : menu / souris · Souris : regarder · {0} : voler · Espace/C : monter/descendre · Maj : rapide · Clic gauche : poser · Molette ou R : tourner · Ctrl+molette : choisir le point d''accroche · Alt : sans accroche · Clic molette : supprimer · Maj+clic molette : pipette · G : grille 0,5 m · Ctrl+Z : annuler · Échap : ranger la pièce · P : vue par étage · V : stabilité'
+    'Page Up / Page Down: change floor · Wheel: zoom · Right drag or {0}: move view · Left click: place · R / Shift+R: rotate · Middle click: remove · Shift+middle click: pick piece · Ctrl+Z: undo · P: back to 3D' = 'Page↑ / Page↓ : changer d''étage · Molette : zoom · Clic droit glissé ou {0} : déplacer la vue · Clic gauche : poser · R / Maj+R : tourner · Clic molette : supprimer · Maj+clic molette : pipette · Ctrl+Z : annuler · P : retour en 3D'
+    'Last plan restored ({0} piece)' = @('Dernier plan restauré ({0} pièce)', 'Dernier plan restauré ({0} pièces)')
+    'Language' = 'Langue'
+    'New' = 'Nouveau'
+    'Open…' = 'Ouvrir…'
+    'Save…' = 'Enregistrer…'
+    'Clear the whole current plan?\n(Save it first if you want to keep it.)' = 'Effacer tout le plan en cours ?\n(Pense à l''enregistrer avant si tu veux le garder.)'
+    'New plan' = 'Nouveau plan'
+    'Clear' = 'Effacer'
+    'Cancel' = 'Annuler'
+    'Stability view (V)' = 'Vue stabilité (V)'
+    'Floor view (P)' = 'Vue par étage (P)'
+    'Export build list…' = 'Exporter la liste de construction…'
+    'Search for a piece…' = 'Rechercher une pièce…'
+    'Save plan' = 'Enregistrer le plan'
+    'Open plan' = 'Ouvrir un plan'
+    'Export build list' = 'Exporter la liste de construction'
+    'All categories' = 'Toutes les catégories'
+    'Cost: {0}' = 'Coût : {0}'
+    'Station: {0}' = 'Atelier : {0}'
+    'none' = 'aucun'
+    'Material: {0}' = 'Matériau : {0}'
+    'Snap points: {0}' = 'Points d''accroche : {0}'
+    'Wood' = 'Bois'
+    'Core wood' = 'Bois dur (cœur)'
+    'Timber wood' = 'Bois de charpente'
+    'Stone' = 'Pierre'
+    'Black marble' = 'Marbre noir'
+    'Ashstone' = 'Pierre de cendre'
+    'Iron' = 'Fer'
+    'Ancient' = 'Ancien'
+    'Ice' = 'Glace'
+    'Pieces placed: {0}' = 'Pièces posées : {0}'
+    'Materials needed:' = 'Matériaux nécessaires :'
+    '(nothing yet)' = '(rien pour l''instant)'
+    '{0} piece would collapse!' = @('{0} pièce s''effondrerait !', '{0} pièces s''effondreraient !')
+    'Stations required:' = 'Ateliers requis :'
+    'FLOOR {0} / {1}' = 'ÉTAGE {0} / {1}'
+    '{0} piece to place, in order:' = @('{0} pièce à poser, dans l''ordre :', '{0} pièces à poser, dans l''ordre :')
+    'Materials for this floor:' = 'Matériaux de cet étage :'
+    'Whole plan' = 'Total du plan'
+    'Floor {0} / {1}   —   from {2} to {3} m' = 'Étage {0} / {1}   —   de {2} à {3} m'
+    'Aiming at: {0}' = 'Visée : {0}'
+    'Stability: COLLAPSES' = 'Stabilité : S''EFFONDRE'
+    'Stability: {0:0} / {1:0} (min {2:0})' = 'Stabilité : {0:0} / {1:0} (min {2:0})'
+    'on the ground' = 'au sol'
+    'Snap: auto' = 'Accroche : auto'
+    'Snap: point {0}/{1}' = 'Accroche : point {0}/{1}'
+    '0.5 m grid' = 'grille 0,5 m'
+    'menu — Tab to go back' = 'menu — Tab pour revenir'
+    'Selection: {0} (Ctrl+C copy · Del delete · Esc clear)' = 'Sélection : {0} (Ctrl+C copier · Suppr effacer · Échap vider)'
+    'Here: the piece would fall' = 'Ici : la pièce tomberait'
+    'Here: stability {0:0}/{1:0}' = 'Ici : stabilité {0:0}/{1:0}'
+    'Nothing selected (Ctrl+click to select)' = 'Rien de sélectionné (Ctrl+clic pour sélectionner)'
+    '{0} piece copied — Ctrl+V to paste' = @('{0} pièce copiée — Ctrl+V pour coller', '{0} pièces copiées — Ctrl+V pour coller')
+    'Pasting {0} piece — click: place · wheel/R: rotate · Esc: stop' = @('Collage de {0} pièce — clic : poser · molette/R : tourner · Échap : arrêter', 'Collage de {0} pièces — clic : poser · molette/R : tourner · Échap : arrêter')
+    'Plan saved: {0}' = 'Plan enregistré : {0}'
+    'Deep North' = 'Nord profond'
+    'Could not read {0}: {1}' = 'Impossible de lire {0} : {1}'
+    'This file contains no Valheim building pieces.' = 'Ce fichier ne contient aucune pièce de construction de Valheim.'
+    '{0} piece' = @('{0} pièce', '{0} pièces')
+    'Imported \"{0}\"' = 'Importé : \"{0}\"'
+    '{0} modded piece skipped' = @('{0} pièce de mod ignorée', '{0} pièces de mod ignorées')
+    '{0} rotation rounded to the game''s steps' = @('{0} rotation arrondie aux crans du jeu', '{0} rotations arrondies aux crans du jeu')
+    'click to place it' = 'clique pour le poser'
+    'Guide (B)' = 'Guide (B)'
+    'Export ▾' = 'Exporter ▾'
+    'Build list (text)…' = 'Liste de construction (texte)…'
+    'PlanBuild blueprint (mod, optional)…' = 'Plan pour PlanBuild (mod, optionnel)…'
+    'Send to PlanBuild' = 'Envoyer vers PlanBuild'
+    'Close' = 'Fermer'
+    'PlanBuild is a Valheim mod: it shows this plan as ghost pieces in your world, which you then build with your own materials.' = 'PlanBuild est un mod de Valheim : il affiche ce plan en pièces fantômes dans ton monde, que tu construis ensuite avec tes propres matériaux.'
+    'While a mod is loaded, Valheim turns achievements off. Nothing is written to your character or world: without the mod, achievements work again.' = 'Tant qu''un mod est chargé, Valheim désactive les succès. Rien n''est inscrit dans ton personnage ni ton monde : sans le mod, les succès refonctionnent.'
+    'Blueprint name:' = 'Nom du plan :'
+    'Save the file…' = 'Enregistrer le fichier…'
+    'Saved: {0}' = 'Enregistré : {0}'
+    'My build' = 'Ma construction'
+    'Send to:' = 'Envoyer vers :'
+    'PlanBuild was not found. Install it (with BepInEx and Jötunn) from Thunderstore or Nexus Mods, or save the file and copy it yourself.' = 'PlanBuild n''a pas été trouvé. Installe-le (avec BepInEx et Jötunn) depuis Thunderstore ou Nexus Mods, ou enregistre le fichier et copie-le toi-même.'
+    'PlanBuild found' = 'PlanBuild trouvé'
+    'Could not write {0}: {1}' = 'Impossible d''écrire {0} : {1}'
+    'Tick at least one destination.' = 'Coche au moins une destination.'
+    'Sent! In game: join your world again, take the Blueprint Rune and open its \"{0}\" tab. The plan appears as ghost pieces to build with your materials.' = 'Envoyé ! Dans le jeu : reviens dans ton monde, prends la rune de plan (Blueprint Rune) et ouvre son onglet \"{0}\". Le plan apparaît en pièces fantômes à construire avec tes matériaux.'
+    'Rebuild guide' = 'Guide de reconstruction'
+    '◀ Previous' = '◀ Précédent'
+    'Next ▶' = 'Suivant ▶'
+    'Show' = 'Voir'
+    'One piece at a time' = 'Pièce par pièce'
+    '← → arrows: previous / next · click a piece: jump to it · you can keep editing' = 'Flèches ← → : précédent / suivant · clic sur une pièce : y aller · tu peux continuer à modifier'
+    'Nothing to rebuild yet: place some pieces first.' = 'Rien à reconstruire pour l''instant : pose d''abord des pièces.'
+    'Step {0} / {1}' = 'Étape {0} / {1}'
+    'Floor {0}' = 'Étage {0}'
+    'Placed so far: {0} / {1}' = 'Déjà posées : {0} / {1}'
+    'Still to gather: {0}' = 'Encore à réunir : {0}'
+    'Planned with {0} — {1} pieces' = 'Planifié avec {0} — {1} pièces'
+    'Read my game' = 'Lire mon jeu'
+    'Choose the Valheim folder…' = 'Choisir le dossier de Valheim…'
+    'Keep the old data' = 'Garder les anciennes données'
+    'This is not a Valheim folder (valheim_Data is missing).' = 'Ce n''est pas un dossier de Valheim (valheim_Data est absent).'
+    'Valheim has changed since the planner last read it. Update the building pieces?' = 'Valheim a changé depuis la dernière lecture. Mettre à jour les pièces de construction ?'
+    'Welcome! The planner reads the building pieces (shapes, sizes, costs, names) from your own Valheim installation.' = 'Bienvenue ! Le planificateur lit les pièces de construction (formes, tailles, coûts, noms) dans ta propre installation de Valheim.'
+    'Nothing from the game is included in the planner: this data is created on your computer and stays there. Your game and saves are only read, never modified.' = 'Rien du jeu n''est inclus dans le planificateur : ces données sont créées sur ton ordinateur et y restent. Ton jeu et tes sauvegardes sont seulement lus, jamais modifiés.'
+    'Valheim folder: {0}' = 'Dossier de Valheim : {0}'
+    'Valheim was not found automatically. Choose its folder (Steam: steamapps/common/Valheim).' = 'Valheim n''a pas été trouvé automatiquement. Choisis son dossier (Steam : steamapps/common/Valheim).'
+    '(about a minute)' = '(environ une minute)'
+    'Reading failed: {0}' = 'La lecture a échoué : {0}'
+    'Opening game files…' = 'Ouverture des fichiers du jeu…'
+    'Finding the hammer pieces…' = 'Recherche des pièces du marteau…'
+    'Reading pieces and shapes…' = 'Lecture des pièces et de leurs formes…'
+    'Reading names in every language…' = 'Lecture des noms dans toutes les langues…'
+    'Saving…' = 'Enregistrement…'
+    'Done' = 'Terminé'
+    'All' = 'Tout'
+    'Pieces' = 'Pièces'
+    'Selected piece' = 'Pièce choisie'
+    'Plan' = 'Plan'
+    'Choose a piece on the left, or aim at one and press Shift+middle click.' = 'Choisis une pièce à gauche, ou vise-en une et fais Maj+clic molette.'
+}
+
+$text = [IO.File]::ReadAllText($pot)
+$missing = @()
+$text = [regex]::Replace($text, '(?m)^msgid "((?:[^"\\]|\\.)*)"\r?\n(msgid_plural "(?:[^"\\]|\\.)*"\r?\nmsgstr\[0\] ""\r?\nmsgstr\[1\] ""|msgstr "")', {
+    param($m)
+    $id = $m.Groups[1].Value
+    if ($id -eq '') { return $m.Value }
+    if (-not $fr.ContainsKey($id)) { $script:missing += $id; return $m.Value }
+    $v = $fr[$id]
+    if ($m.Groups[2].Value.StartsWith('msgid_plural')) {
+        $pl = [regex]::Match($m.Groups[2].Value, 'msgid_plural "((?:[^"\\]|\\.)*)"').Groups[1].Value
+        return "msgid `"$id`"`nmsgid_plural `"$pl`"`nmsgstr[0] `"$($v[0])`"`nmsgstr[1] `"$($v[1])`""
+    }
+    return "msgid `"$id`"`nmsgstr `"$v`""
+})
+$text = $text.Replace('"Content-Type: text/plain; charset=UTF-8\n"', "`"Language: fr\n`"`n`"Plural-Forms: nplurals=2; plural=(n > 1);\n`"`n`"Content-Type: text/plain; charset=UTF-8\n`"")
+[IO.File]::WriteAllText($out, $text, [Text.UTF8Encoding]::new($false))
+if ($missing.Count) { "MISSING FRENCH: $($missing -join ' | ')"; exit 1 }
+"fr.po written ($($fr.Count) texts)"

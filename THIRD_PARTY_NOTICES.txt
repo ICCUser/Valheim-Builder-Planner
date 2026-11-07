@@ -1,0 +1,14 @@
+Valheim Builder Planner includes the following third-party software, each under the MIT License:
+
+- Godot Engine 4.7 — Copyright (c) 2014-present Godot Engine contributors; (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+  https://godotengine.org/license
+- AssetsTools.NET — Copyright (c) nesrak1 and contributors.
+  https://github.com/nesrak1/AssetsTools.NET
+- .NET runtime libraries — Copyright (c) .NET Foundation and Contributors.
+  https://github.com/dotnet/runtime
+
+MIT License text: https://opensource.org/license/mit
+
+Valheim is a trademark of Iron Gate AB. This project is not affiliated with, endorsed by or sponsored by
+Iron Gate AB or Coffee Stain Publishing. It does not include any of their files or data: the building
+pieces are read from each player's own installation of the game.

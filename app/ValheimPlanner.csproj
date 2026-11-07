@@ -1,0 +1,13 @@
+<Project Sdk="Godot.NET.Sdk/4.7.2">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <Nullable>enable</Nullable>
+    <RootNamespace>ValheimPlanner</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Reads the player's own Valheim install on first launch (no game data ships with the app) -->
+    <PackageReference Include="AssetsTools.NET" Version="3.0.5" />
+    <Compile Include="..\shared\GameData\*.cs" />
+  </ItemGroup>
+</Project>

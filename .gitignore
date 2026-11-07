@@ -1,0 +1,37 @@
+# --- Never publish anything that comes from the game ---------------------------------
+# Data extracted from a Valheim install (each player creates their own on first launch)
+pieces.json
+meshes.bin
+extract_info.json
+thumbs/
+# Research notes, decompiled game code, screenshots used during development
+research/
+*.decompiled.cs
+# Decompiler tool manifest (only used for research)
+.config/
+
+# --- Builds ---------------------------------------------------------------------------
+build/
+release/
+bin/
+obj/
+*.zip
+
+# --- Godot ----------------------------------------------------------------------------
+app/.godot/
+*.import
+*.translation
+export_credentials.cfg
+mono_crash.*
+
+# --- Local / personal files -----------------------------------------------------------
+*.vplan.json
+*.blueprint
+*.vbuild
+liste_construction.txt
+build_list.txt
+tools/mods/
+.vs/
+.vscode/
+.idea/
+*.user

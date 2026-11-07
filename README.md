@@ -30,6 +30,9 @@ Plan your Valheim builds outside the game, with the game's own pieces, snapping 
 ## Build from source
 Godot 4.7 .NET + .NET 8 SDK. Run `run-dev.bat`, or open `app/` in Godot. `tools/Extractor` runs the same game reading from the command line.
 
+## Code signing
+Windows builds are made from this repository by GitHub Actions. Signing through SignPath Foundation (free for open source) is being set up: see [docs/CODE_SIGNING.md](docs/CODE_SIGNING.md).
+
 ## Translations
 The interface is in English and French. Help translate it: see [TRANSLATING.md](TRANSLATING.md).
 

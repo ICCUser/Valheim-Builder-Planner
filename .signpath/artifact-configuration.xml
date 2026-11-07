@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SignPath artifact configuration: which files of the build artifact get signed.
+     The GitHub artifact contains the release folder's content at its root. Paste this into the
+     project's artifact configuration on signpath.io (or keep it in sync with it). -->
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <zip-file>
+    <pe-file path="ValheimBuilderPlanner.exe">
+      <authenticode-sign />
+    </pe-file>
+    <pe-file path="data_ValheimPlanner_windows_x86_64/ValheimPlanner.dll">
+      <authenticode-sign />
+    </pe-file>
+  </zip-file>
+</artifact-configuration>

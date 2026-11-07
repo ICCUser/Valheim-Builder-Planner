@@ -1,0 +1,147 @@
+# Builds the Windows release from source on every push, and publishes it on version tags (v1.2.3).
+# Signing: when the SignPath secrets/variables are configured (see docs/CODE_SIGNING.md), the exe and the
+# app's own DLL are signed by SignPath Foundation before the zip is published. Without them, the build is unsigned.
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  GODOT_VERSION: 4.7.2
+  SIGNPATH_API_TOKEN: ${{ secrets.SIGNPATH_API_TOKEN }}
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Cache Godot and its Windows export templates
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~\godot
+            ~\AppData\Roaming\Godot\export_templates
+          key: godot-${{ env.GODOT_VERSION }}-mono-win64-v1
+
+      - name: Download Godot (.NET) and export templates
+        if: steps.cache.outputs.cache-hit != 'true'
+        shell: pwsh
+        run: |
+          $v = $env:GODOT_VERSION
+          $base = "https://github.com/godotengine/godot/releases/download/$v-stable"
+          $dir = Join-Path $HOME 'godot'
+          New-Item -ItemType Directory -Force $dir | Out-Null
+          $ProgressPreference = 'SilentlyContinue'
+          Invoke-WebRequest "$base/Godot_v$v-stable_mono_win64.zip" -OutFile "$dir\godot.zip"
+          Expand-Archive "$dir\godot.zip" $dir
+          Remove-Item "$dir\godot.zip"
+          Invoke-WebRequest "$base/Godot_v$v-stable_mono_export_templates.tpz" -OutFile "$dir\templates.tpz"
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $zip = [IO.Compression.ZipFile]::OpenRead("$dir\templates.tpz")
+          $ver = (New-Object IO.StreamReader(($zip.Entries | Where-Object FullName -eq 'templates/version.txt').Open())).ReadToEnd().Trim()
+          $dst = Join-Path $env:APPDATA "Godot\export_templates\$ver"
+          New-Item -ItemType Directory -Force $dst | Out-Null
+          foreach ($e in $zip.Entries | Where-Object { $_.FullName -match '^templates/(version\.txt|icudt_godot\.dat|windows_(debug|release)_x86_64(_console)?\.exe)$' }) {
+            [IO.Compression.ZipFileExtensions]::ExtractToFile($e, (Join-Path $dst $e.Name), $true)
+          }
+          $zip.Dispose()
+          Remove-Item "$dir\templates.tpz"
+
+      - name: Build
+        shell: pwsh
+        working-directory: app
+        run: dotnet build -nologo
+
+      - name: Export Windows release
+        shell: pwsh
+        working-directory: app
+        run: |
+          $godot = Get-ChildItem (Join-Path $HOME 'godot') -Recurse -Filter "Godot_v*_mono_win64_console.exe" | Select-Object -First 1
+          if (-not $godot) { throw 'Godot not found' }
+          # Godot may stay alive after finishing in headless mode: wait for the expected output, then stop it.
+          function Run-Godot([string[]]$GodotArgs, [string]$DoneWhen, [int]$Seconds) {
+            $p = Start-Process $godot.FullName -ArgumentList $GodotArgs -NoNewWindow -PassThru -RedirectStandardOutput out.log -RedirectStandardError err.log
+            $end = (Get-Date).AddSeconds($Seconds)
+            while (-not $p.HasExited -and (Get-Date) -lt $end) {
+              if ($DoneWhen -and (Get-Content out.log -Raw -ErrorAction SilentlyContinue) -match $DoneWhen) { Start-Sleep 3; break }
+              Start-Sleep 2
+            }
+            if (-not $p.HasExited) { $p.Kill() }
+            Get-Content out.log -Tail 5
+          }
+          Run-Godot @('--headless', '--path', '.', '--import') '' 300
+          New-Item -ItemType Directory -Force ../build | Out-Null
+          Run-Godot @('--headless', '--path', '.', '--export-release', '"Windows Desktop"', '../build/ValheimBuilderPlanner.exe') '\[ DONE \] savepack' 600
+          if (-not (Test-Path ../build/ValheimBuilderPlanner.pck)) { Get-Content err.log -Tail 40; throw 'Export failed' }
+          Get-ChildItem ../build | Format-Table Name, Length
+
+      - name: Assemble release folder
+        id: pack
+        shell: pwsh
+        run: |
+          $version = if ($env:GITHUB_REF -like 'refs/tags/v*') { $env:GITHUB_REF_NAME.TrimStart('v') }
+                     else { ([regex]::Match((Get-Content app/src/AppInfo.cs -Raw), 'Version = "([^"]+)"')).Groups[1].Value + "-dev.$env:GITHUB_RUN_NUMBER" }
+          $rel = 'release/ValheimBuilderPlanner'
+          New-Item -ItemType Directory -Force $rel | Out-Null
+          Copy-Item build/* $rel -Recurse
+          Copy-Item docs/README.txt, THIRD_PARTY_NOTICES.txt $rel
+          Copy-Item LICENSE "$rel/LICENSE.txt"
+          # Never ship data extracted from the game.
+          $bad = Get-ChildItem $rel -Recurse -File | Where-Object Name -match 'pieces\.json|meshes\.bin|extract_info'
+          if ($bad) { throw "Game data found in the release: $bad" }
+          "version=$version" >> $env:GITHUB_OUTPUT
+
+      - name: Upload unsigned build
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: ValheimBuilderPlanner-${{ steps.pack.outputs.version }}-win64-unsigned
+          path: release/ValheimBuilderPlanner
+
+      - name: Sign with SignPath Foundation
+        if: env.SIGNPATH_API_TOKEN != ''
+        uses: signpath/github-action-submit-signing-request@v1
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+          project-slug: ${{ vars.SIGNPATH_PROJECT_SLUG }}
+          signing-policy-slug: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+          artifact-configuration-slug: ${{ vars.SIGNPATH_ARTIFACT_CONFIGURATION_SLUG }}
+          github-artifact-id: ${{ steps.upload.outputs.artifact-id }}
+          wait-for-completion: true
+          output-artifact-directory: signed/ValheimBuilderPlanner
+
+      - name: Zip
+        shell: pwsh
+        run: |
+          $src = if (Test-Path signed/ValheimBuilderPlanner) { 'signed/ValheimBuilderPlanner' } else { 'release/ValheimBuilderPlanner' }
+          if ($src -ne 'release/ValheimBuilderPlanner') { Remove-Item -Recurse release/ValheimBuilderPlanner; Copy-Item -Recurse $src release/ValheimBuilderPlanner }
+          Compress-Archive -Path release/ValheimBuilderPlanner -DestinationPath "release/ValheimBuilderPlanner-v${{ steps.pack.outputs.version }}-win64.zip"
+          Get-FileHash release/*.zip -Algorithm SHA256 | Format-List
+
+      - name: Upload zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: ValheimBuilderPlanner-v${{ steps.pack.outputs.version }}-win64
+          path: release/*.zip
+
+      - name: Publish GitHub release (tags only)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/*.zip
+          generate_release_notes: true

@@ -1,0 +1,28 @@
+To: support@nexusmods.com
+Subject: Quarantine review request – Valheim Builder Planner (Valheim mod 4881)
+
+Hello,
+
+My file "ValheimBuilderPlanner V1.0.0 Win64" on the mod page below was quarantined by the automated checks. I'd like to request a manual review.
+
+Mod page: https://www.nexusmods.com/valheim/mods/4881
+Source code (MIT): https://github.com/ICCUser/Valheim-Builder-Planner
+Same zip on GitHub Releases: https://github.com/ICCUser/Valheim-Builder-Planner/releases/tag/v1.0.0
+SHA-256 of the zip: 58c3cbcb59798b8d0842ff5817f831e13ab4be17f871c263205abcc9d8cc64a0
+VirusTotal: https://www.virustotal.com/gui/file/58c3cbcb59798b8d0842ff5817f831e13ab4be17f871c263205abcc9d8cc64a0 (no vendor flags it)
+
+What it is: a standalone Windows building planner for Valheim (not an in-game mod). It contains an executable because it is a desktop application made with the Godot Engine 4.7 (.NET/C#). The zip contains:
+- ValheimBuilderPlanner.exe – the Godot 4.7.2 release export template (official, unsigned)
+- ValheimBuilderPlanner.pck – the app's resources and translations
+- data_ValheimPlanner_windows_x86_64/ – the app's compiled C# code (ValheimPlanner.dll), the .NET runtime and the AssetsTools.NET library (MIT)
+- README.txt, LICENSE.txt, THIRD_PARTY_NOTICES.txt
+No game files are included: on first launch the app reads the building pieces from the player's own Valheim install (read-only).
+
+How to build it from source:
+1. Install the .NET 8 SDK and Godot 4.7.2 (.NET edition), plus the Godot 4.7.2 export templates.
+2. git clone https://github.com/ICCUser/Valheim-Builder-Planner
+3. cd Valheim-Builder-Planner/app && dotnet build
+4. godot --headless --path . --export-release "Windows Desktop" ../build/ValheimBuilderPlanner.exe
+
+Thank you!
+ICCUser

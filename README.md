@@ -15,7 +15,16 @@ Plan your Valheim builds outside the game, with the game's own pieces, snapping 
 - **Floor view**, **materials list** per floor, **build list export** (text checklist).
 - **Rebuild guide**: step by step, foundations first, roof last, the current step highlighted in 3D.
 - Copy/paste, undo, autosave, Valheim-style camera (fly, mouse look).
-- **Optional PlanBuild support**: export your plan as a PlanBuild blueprint in one click, or open PlanBuild / BuildShare blueprints from the community. PlanBuild is a mod: while a mod is loaded, Valheim disables achievements.
+- Open PlanBuild (`.blueprint`) and BuildShare (`.vbuild`) files shared by the community.
+
+## Two ways to get your build into the game
+The planner is a separate program: it never changes your game. Once your plan is ready, you choose:
+
+| | **1. Vanilla, by hand** (recommended) | **2. With the PlanBuild mod** |
+|---|---|---|
+| How | Keep the planner open next to the game (second screen or Alt+Tab) and rebuild with the hammer, following the **rebuild guide** (B), the floor view and the materials list. | *Export ▾ → PlanBuild blueprint* sends the plan to [PlanBuild](https://thunderstore.io/c/valheim/p/MathiasDecrock/PlanBuild/) (a separate mod, not made here). In game, it appears as see-through ghost pieces you fill in. |
+| Install in the game | Nothing | PlanBuild + BepInEx + Jotunn |
+| **Achievements** | **Stay on** | **Off as long as any mod is loaded** (your save is not damaged: remove the mods and they work again) |
 
 | | |
 |---|---|
@@ -46,4 +55,8 @@ The interface is in English and French. Help translate it: see [TRANSLATING.md](
 ---
 
 ## 🇫🇷 En français
-Planifie tes constructions Valheim hors du jeu, avec les vraies pièces, l'accroche et la stabilité du jeu, puis reconstruis-les dans ton monde, en 100 % vanilla. Outil de fan non officiel : **aucun fichier du jeu n'est inclus**, les données sont lues dans ta propre installation au premier lancement. Export PlanBuild optionnel (mod : les succès sont désactivés tant qu'un mod est chargé).
+Planifie tes constructions Valheim hors du jeu, avec les vraies pièces, l'accroche et la stabilité du jeu, puis reconstruis-les dans ton monde. Outil de fan non officiel : **aucun fichier du jeu n'est inclus**, les données sont lues dans ta propre installation au premier lancement.
+
+Deux façons de passer du plan au jeu :
+1. **En vanilla, à la main** (recommandé) : tu reconstruis avec le marteau en suivant le guide pas à pas (touche B). Rien à installer, **tes succès restent actifs**.
+2. **Avec le mod PlanBuild** : export en un clic, le plan apparaît dans le jeu en pièces fantômes à remplir. Plus rapide, mais **Valheim désactive les succès tant qu'un mod est chargé** (ta sauvegarde n'est pas abîmée, ils reviennent sans les mods).

@@ -1,4 +1,4 @@
-# Builds the Windows release from source on every push, and publishes it on version tags (v1.2.3).
+# Builds the Windows release from source on every push, and publishes it on version tags (v1.2.3) to GitHub and Nexus Mods (see docs/RELEASING.md).
 # Signing: when the SignPath secrets/variables are configured (see docs/CODE_SIGNING.md), the exe and the
 # app's own DLL are signed by SignPath Foundation before the zip is published. Without them, the build is unsigned.
 name: Build
@@ -12,10 +12,13 @@ on:
 
 permissions:
   contents: write
+  id-token: write      # build provenance attestation
+  attestations: write
 
 env:
   GODOT_VERSION: 4.7.2
   SIGNPATH_API_TOKEN: ${{ secrets.SIGNPATH_API_TOKEN }}
+  NEXUSMODS_API_KEY: ${{ secrets.NEXUSMODS_API_KEY }}
 
 jobs:
   windows:
@@ -133,6 +136,16 @@ jobs:
           Compress-Archive -Path release/ValheimBuilderPlanner -DestinationPath "release/ValheimBuilderPlanner-v${{ steps.pack.outputs.version }}-win64.zip"
           Get-FileHash release/*.zip -Algorithm SHA256 | Format-List
 
+      # Signed proof (by GitHub) that the zip and the exe were built here from this commit.
+      # Check with: gh attestation verify <file> -R ICCUser/Valheim-Builder-Planner
+      - name: Attest build provenance
+        if: github.event_name != 'pull_request'
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: |
+            release/*.zip
+            release/ValheimBuilderPlanner/ValheimBuilderPlanner.exe
+
       - name: Upload zip
         uses: actions/upload-artifact@v4
         with:
@@ -145,3 +158,18 @@ jobs:
         with:
           files: release/*.zip
           generate_release_notes: true
+
+      # Nexus Mods: adds the zip as a new version of the existing main file (mod 4881).
+      # Needs secret NEXUSMODS_API_KEY and variable NEXUSMODS_FILE_ID; skipped when the key is absent.
+      - name: Upload to Nexus Mods (tags only)
+        if: startsWith(github.ref, 'refs/tags/v') && env.NEXUSMODS_API_KEY != ''
+        uses: Nexus-Mods/upload-action@v1.0.0-beta.11
+        with:
+          api_key: ${{ secrets.NEXUSMODS_API_KEY }}
+          file_id: ${{ vars.NEXUSMODS_FILE_ID }}
+          filename: release/ValheimBuilderPlanner-v${{ steps.pack.outputs.version }}-win64.zip
+          version: ${{ steps.pack.outputs.version }}
+          display_name: Valheim Builder Planner v${{ steps.pack.outputs.version }} (Win64)
+          category: main
+          archive_existing_version: true
+          update_mod_version: true

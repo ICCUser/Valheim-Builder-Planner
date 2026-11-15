@@ -31,7 +31,11 @@ Plan your Valheim builds outside the game, with the game's own pieces, snapping 
 Godot 4.7 .NET + .NET 8 SDK. Run `run-dev.bat`, or open `app/` in Godot. `tools/Extractor` runs the same game reading from the command line.
 
 ## Code signing
-Windows builds are made from this repository by GitHub Actions. Signing through SignPath Foundation (free for open source) is being set up: see [docs/CODE_SIGNING.md](docs/CODE_SIGNING.md).
+The exe is not code-signed yet, so Windows SmartScreen may show "Windows protected your PC": click **More info → Run anyway**.
+
+Every release is built from this repository by GitHub Actions, and GitHub attests it: you can check that your download was built here from the public source with
+`gh attestation verify ValheimBuilderPlanner-v1.0.0-win64.zip -R ICCUser/Valheim-Builder-Planner`
+(attestations are listed [here](https://github.com/ICCUser/Valheim-Builder-Planner/attestations)). Free signing through SignPath Foundation is planned once the project is more established: see [docs/CODE_SIGNING.md](docs/CODE_SIGNING.md).
 
 ## Translations
 The interface is in English and French. Help translate it: see [TRANSLATING.md](TRANSLATING.md).

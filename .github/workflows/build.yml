@@ -173,3 +173,6 @@ jobs:
           category: main
           archive_existing_version: true
           update_mod_version: true
+          # Standalone program, not files to install in the game: no Vortex / mod manager download.
+          allow_mod_manager_download: false
+          primary_mod_manager_download: false

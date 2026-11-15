@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1
+- Releases are now built by GitHub Actions from the public source, with a GitHub build provenance attestation (`gh attestation verify`), and published automatically on GitHub and Nexus Mods.
+- Clearer explanation of the two ways to rebuild a plan in game: vanilla by hand (achievements stay on) or with the PlanBuild mod (achievements off while mods are loaded).
+- No change to the app's features.
+
 ## 1.0.0 — first release
 - Plan builds with every Hammer piece of Valheim (≈ 390), read from the player's own install on first launch (shapes, sizes, snap points, costs, stations, names in 36 languages). No game data is shipped.
 - Game-accurate snapping and 22.5° rotation steps, manual snap point choice (Ctrl+wheel).

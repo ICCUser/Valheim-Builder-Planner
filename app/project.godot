@@ -4,7 +4,7 @@ config_version=5
 [application]
 
 config/name="Valheim Builder Planner"
-config/version="1.0.0"
+config/version="1.0.1"
 config/description="Unofficial building planner for Valheim"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="ValheimBuilderPlanner"
